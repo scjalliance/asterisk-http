@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"os"
 	"strconv"
 
@@ -38,14 +39,20 @@ func (c *Config) ParseEnv() {
 		c.DataPath = dataPath
 	}
 	if hasLogging {
-		if val, err := strconv.ParseBool(logging); err != nil {
-			c.Logging = val
+		val, err := strconv.ParseBool(logging)
+		if err != nil {
+			fmt.Printf("Failed to parse LOGGING environment variable: %v\n", err)
+			os.Exit(1)
 		}
+		c.Logging = val
 	}
 	if hasListing {
-		if val, err := strconv.ParseBool(listing); err != nil {
-			c.DirectoryListing = val
+		val, err := strconv.ParseBool(listing)
+		if err != nil {
+			fmt.Printf("Failed to parse DIRECTORY_LISTING environment variable: %v\n", err)
+			os.Exit(1)
 		}
+		c.DirectoryListing = val
 	}
 }
 
