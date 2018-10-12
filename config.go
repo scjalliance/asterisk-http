@@ -3,14 +3,17 @@ package main
 import (
 	"flag"
 	"os"
+	"strconv"
 
 	"github.com/gentlemanautomaton/bindflag"
 )
 
 // Config holds a set of asterisk HTTP server configuration values.
 type Config struct {
-	URLPrefix string
-	DataPath  string
+	URLPrefix        string
+	DataPath         string
+	Logging          bool
+	DirectoryListing bool
 }
 
 // DefaultConfig holds the default configuration values.
@@ -22,8 +25,10 @@ var DefaultConfig = Config{
 // configuration.
 func (c *Config) ParseEnv() {
 	var (
-		prefix, hasPrefix     = os.LookupEnv("URLPREFIX")
+		prefix, hasPrefix     = os.LookupEnv("URL_PREFIX")
 		dataPath, hasDataPath = os.LookupEnv("DATA")
+		logging, hasLogging   = os.LookupEnv("LOGGING")
+		listing, hasListing   = os.LookupEnv("DIRECTORY_LISTING")
 	)
 
 	if hasPrefix {
@@ -31,6 +36,16 @@ func (c *Config) ParseEnv() {
 	}
 	if hasDataPath {
 		c.DataPath = dataPath
+	}
+	if hasLogging {
+		if val, err := strconv.ParseBool(logging); err != nil {
+			c.Logging = val
+		}
+	}
+	if hasListing {
+		if val, err := strconv.ParseBool(listing); err != nil {
+			c.DirectoryListing = val
+		}
 	}
 }
 
@@ -46,4 +61,6 @@ func (c *Config) ParseArgs(args []string, errorHandling flag.ErrorHandling) erro
 func (c *Config) Bind(fs *flag.FlagSet) {
 	fs.Var(bindflag.String(&c.URLPrefix), "urlprefix", "URL Prefix")
 	fs.Var(bindflag.String(&c.DataPath), "path", "path of asset directory on local filesystem")
+	fs.Var(bindflag.Bool(&c.Logging), "logging", "should all requests should be logged?")
+	fs.Var(bindflag.Bool(&c.DirectoryListing), "dirlist", "should directory listings be generated?")
 }
