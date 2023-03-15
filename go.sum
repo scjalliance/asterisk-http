@@ -1,0 +1,9 @@
+github.com/felixge/httpsnoop v1.0.1/go.mod h1:m8KPJKqk1gH5J9DgRY2ASl2lWCfGKXixSwevea8zH2U=
+github.com/felixge/httpsnoop v1.0.3 h1:s/nj+GCswXYzN5v2DpNMuMQYe+0DDwt5WVCU6CWBdXk=
+github.com/felixge/httpsnoop v1.0.3/go.mod h1:m8KPJKqk1gH5J9DgRY2ASl2lWCfGKXixSwevea8zH2U=
+github.com/gentlemanautomaton/bindflag v0.0.0-20161103102617-8ec14095b7a5 h1:hvC8L9C6f+kT9pw03tgN1Hb6TGIPeihkfbsLJpvw26s=
+github.com/gentlemanautomaton/bindflag v0.0.0-20161103102617-8ec14095b7a5/go.mod h1:fLW2p4IZGt4SwHvHGV6KxIuBjiOwRgK5QFDC1hWgim4=
+github.com/gentlemanautomaton/signaler v0.0.0-20180126105343-ab8bba8a505a h1:I8BgZ4GS7rz9UeuNQjag0QI4a13H7nZZSOjde0TxmYU=
+github.com/gentlemanautomaton/signaler v0.0.0-20180126105343-ab8bba8a505a/go.mod h1:YOqh9ieFYbwuLkFnzcbW3vAnmQF4WybHlGQYd+OlnsY=
+github.com/gorilla/handlers v1.5.1 h1:9lRY6j8DEeeBT10CvO9hGW0gmky0BprnvDI5vfhUHH4=
+github.com/gorilla/handlers v1.5.1/go.mod h1:t8XrUpc4KVXb7HGyJ4/cEnwQiaxrX/hz1Zv/4g96P1Q=
